@@ -1,15 +1,10 @@
 # 🛡️ SHIELD Audio Downloader
 
-Simple web app untuk download audio dari TikTok & Instagram.
+Download & split audio dari TikTok & Instagram seperti Adobe Premiere / CapCut.
 
 ## Setup
 
-1. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. **Install FFmpeg** (diperlukan untuk convert ke MP3):
+1. **Install FFmpeg** (required untuk audio processing):
    ```bash
    # macOS
    brew install ffmpeg
@@ -21,18 +16,38 @@ Simple web app untuk download audio dari TikTok & Instagram.
    choco install ffmpeg
    ```
 
-3. **Run app:**
+2. **Setup dengan uv:**
    ```bash
+   uv sync
+   uv run streamlit run app.py
+   ```
+   
+   Atau dengan pip:
+   ```bash
+   pip install -r requirements.txt
    streamlit run app.py
    ```
 
-4. Buka browser ke `http://localhost:8501`
+3. Buka browser ke `http://localhost:8501`
 
-## Usage
+## Features
 
+### 📥 Download Tab
 - Paste TikTok atau Instagram link
-- Klik "Download Audio"
-- Audio akan di-convert ke MP3 dan bisa didownload langsung
+- Download audio langsung sebagai MP3
+
+### ✂️ Split & Export Tab
+- Upload audio dan split menjadi multiple segments
+- Set split points dengan slider (dalam detik)
+- Auto-generate naming: `audio_1.mp3`, `audio_2.mp3`, dst
+- Batch download semua segments
+
+## Contoh Naming
+```
+original_video_1.mp3  (0:00 - 0:15)
+original_video_2.mp3  (0:15 - 0:30)
+original_video_3.mp3  (0:30 - end)
+```
 
 ## Supported Platforms
 
